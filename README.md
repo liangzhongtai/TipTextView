@@ -26,7 +26,7 @@ TipTextView,主要依赖paint来绘制角标，角标的背景半径，颜色和
 控制.
 固定模式根据TipTextView整个控件的宽高来固定角标的位置,可以用tipSurroundPadding参数对偏移量做微调;
 环绕模式，顾名思义，按TipTextView的字体和Drawable的宽高来计算角标的位置,可以用tipSurroundPadding参数对偏移量做微调.
-![image](https://github.com/liangzhongtai/ReplaceFonts/blob/master/resultPic/tiptextview_0.png)
+![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_0.png)
 
 TipLayout和TipRadioGroup的原理，功能和TipTextView类似.
 TipLayout则作为外部布局，提供对Button,Imageview,CheckBox添加角标的支持，支持在xml或代码中动态添加角标.
@@ -46,7 +46,7 @@ allprojects {
 App_Gradle:
 ``` xml
 dependencies {
-	        compile 'com.github.liangzhongtai:TipTextView:-SNAPSHOT'
+	        compile ''com.github.liangzhongtai:TipTextView:v1.0'
 	}
 ```
 
@@ -76,15 +76,15 @@ dependencies {
         	"bottomLeft"-----左下
 
 
-![image](https://github.com/liangzhongtai/ReplaceFonts/blob/master/resultPic/tiptextview_0.png)
+![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_0.png)
 
 (2).在代码中也可以动态设置
 设置角标文本
-![image](https://github.com/liangzhongtai/ReplaceFonts/blob/master/resultPic/tiptextview_1.png)
+![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_1.png)
 设置角标颜色,大小
-![image](https://github.com/liangzhongtai/ReplaceFonts/blob/master/resultPic/tiptextview_2.png)
+![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_2.png)
 设置角标方向,形状
-![image](https://github.com/liangzhongtai/ReplaceFonts/blob/master/resultPic/tiptextview_3.png)
+![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_3.png)
 
 ## 2.TipLayout
 (1).在xml中可以直接使用自定义属性来设置部分属性,同TipTextView;
