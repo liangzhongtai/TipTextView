@@ -49,7 +49,6 @@ dependencies {
 	        compile ''com.github.liangzhongtai:TipTextView:v1.0'
 	}
 ```
-
 ### 使用方法
 
 ## 1.TipTextView
@@ -75,20 +74,27 @@ dependencies {
         	"topLeft"--------左上
         	"bottomLeft"-----左下
 
-
-![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_0.png)
+![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_6.png)
 
 (2).在代码中也可以动态设置
 设置角标文本
+
 ![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_1.png)
+
 设置角标颜色,大小
+
 ![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_2.png)
+
 设置角标方向,形状
+
 ![image](https://github.com/liangzhongtai/TipTextView/blob/master/resultPic/tiptextview_3.png)
+
 
 ## 2.TipLayout
 (1).在xml中可以直接使用自定义属性来设置部分属性,同TipTextView;
+
 ![image](https://github.com/liangzhongtai/ReplaceFonts/blob/master/resultPic/tiptextview_4.png)
+
 (2).在代码中也可以动态设置,set方法同TipTextView.
 
 ## 3.TipLinearLayout
