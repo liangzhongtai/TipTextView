@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TipTextView">  
+        <attr name="ttv_color"        format="color"/>
+        <attr name="ttv_outer_color"  format="color"/>
+        <attr name="ttv_textcolor"    format="color"/>
+        <attr name="ttv_radius"       format="integer" />
+        <attr name="ttv_outer_stroke" format="integer"/>
+        <attr name="ttv_sice"         format="float"/>
+        <attr name="ttv_max"          format="float"/>
+        <attr name="ttv_rHeight"      format="float"/>
+        <attr name="ttv_rWidth"       format="float"/>
+        <attr name="ttv_corner"       format="float"/>
+        <attr name="ttv_shape"        format="enum">
+            <enum name="circle"          value="0"/>
+            <enum name="round_rectangle" value="1"/>
+            <enum name="rectangle"       value="2"/>
+            <enum name="oval"            value="3"/>
+        </attr>
+        <attr name="ttv_type"         format="enum">
+            <enum name="fixation"   value="0"/>
+            <enum name="surround"   value="1"/>
+            <enum name="surround_v" value="2"/>
+            <enum name="surround_h" value="3"/>
+        </attr>
+        <attr name="ttv_surround_padding" format="integer"/>
+        <attr name="ttv_direction"        format="enum">
+            <enum name="left"        value="0"/>
+            <enum name="top"         value="1"/>
+            <enum name="right"       value="2"/>
+            <enum name="bottom"      value="3"/>
+            <enum name="topRight"    value="4"/>
+            <enum name="bottomRight" value="5"/>
+            <enum name="topLeft"     value="6"/>
+            <enum name="bottomLeft"  value="7"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="TipLayout">  
+        <attr name="tl_color"           format="color"/>
+        <attr name="tl_outer_color"     format="color"/>
+        <attr name="tl_textcolor"       format="color"/>
+        <attr name="tl_radius"          format="integer" />
+        <attr name="tl_outer_stroke"    format="integer"/>
+        <attr name="tl_sice"            format="float"/>
+        <attr name="tl_max"             format="float"/>
+        <attr name="tl_rHeight"         format="float"/>
+        <attr name="tl_rWidth"          format="float"/>
+        <attr name="tl_corner"          format="float"/>
+        <attr name="tl_shape"           format="enum">
+            <enum name="circle"          value="0"/>
+            <enum name="round_rectangle" value="1"/>
+            <enum name="rectangle"       value="2"/>
+            <enum name="oval"            value="3"/>
+        </attr>
+        <attr name="tl_type"            format="enum">
+            <enum name="fixation"   value="0"/>
+            <enum name="surround"   value="1"/>
+            <enum name="surround_v" value="2"/>
+            <enum name="surround_h" value="3"/>
+        </attr>
+        <attr name="tl_surround_padding" format="integer"/>
+        <attr name="tl_direction"        format="enum">
+            <enum name="left"        value="0"/>
+            <enum name="top"         value="1"/>
+            <enum name="right"       value="2"/>
+            <enum name="bottom"      value="3"/>
+            <enum name="topRight"    value="4"/>
+            <enum name="bottomRight" value="5"/>
+            <enum name="topLeft"     value="6"/>
+            <enum name="bottomLeft"  value="7"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="TipRadioGroup">  
+        <attr name="trg_color"          format="color"/>
+        <attr name="trg_outer_color"    format="color"/>
+        <attr name="trg_textcolor"      format="color"/>
+        <attr name="trg_radius"         format="integer"/>
+        <attr name="trg_outer_stroke"   format="integer"/>
+        <attr name="trg_sice"           format="float"/>
+        <attr name="trg_max"            format="float"/>
+        <attr name="trg_rHeight"        format="float"/>
+        <attr name="trg_rWidth"         format="float"/>
+        <attr name="trg_corner"         format="float"/>
+        <attr name="trg_layout_type"    format="enum">
+            <enum name="only_weight"     value="0"/>
+            <enum name="common_mix"      value="1"/>
+        </attr>
+        <attr name="trg_shape"          format="enum">
+            <enum name="circle"          value="0"/>
+            <enum name="round_rectangle" value="1"/>
+            <enum name="rectangle"       value="2"/>
+            <enum name="oval"            value="3"/>
+        </attr>
+        <attr name="trg_type"           format="enum">
+            <enum name="fixation"   value="0"/>
+            <enum name="surround"   value="1"/>
+            <enum name="surround_v" value="2"/>
+            <enum name="surround_h" value="3"/>
+        </attr>
+        <attr name="trg_surround_padding" format="integer"/>
+        <attr name="trg_direction"        format="enum">
+            <enum name="left"        value="0"/>
+            <enum name="top"         value="1"/>
+            <enum name="right"       value="2"/>
+            <enum name="bottom"      value="3"/>
+            <enum name="topRight"    value="4"/>
+            <enum name="bottomRight" value="5"/>
+            <enum name="topLeft"     value="6"/>
+            <enum name="bottomLeft"  value="7"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="TipLinearLayout">  
+        <attr name="tll_color"          format="color"/>
+        <attr name="tll_outer_color"    format="color"/>
+        <attr name="tll_textcolor"      format="color"/>
+        <attr name="tll_radius"         format="integer"/>
+        <attr name="tll_outer_stroke"   format="integer"/>
+        <attr name="tll_sice"           format="float"/>
+        <attr name="tll_max"            format="float"/>
+        <attr name="tll_rHeight"        format="float"/>
+        <attr name="tll_rWidth"         format="float"/>
+        <attr name="tll_corner"         format="float"/>
+        <attr name="tll_layout_type"    format="enum">
+            <enum name="only_weight"     value="0"/>
+            <enum name="common_mix"      value="1"/>
+        </attr>
+        <attr name="tll_shape"          format="enum">
+            <enum name="circle"          value="0"/>
+            <enum name="round_rectangle" value="1"/>
+            <enum name="rectangle"       value="2"/>
+            <enum name="oval"            value="3"/>
+        </attr>
+        <attr name="tll_type"           format="enum">
+            <enum name="fixation"   value="0"/>
+            <enum name="surround"   value="1"/>
+            <enum name="surround_v" value="2"/>
+            <enum name="surround_h" value="3"/>
+        </attr>
+        <attr name="tll_surround_padding" format="integer"/>
+        <attr name="tll_direction"        format="enum">
+            <enum name="left"        value="0"/>
+            <enum name="top"         value="1"/>
+            <enum name="right"       value="2"/>
+            <enum name="bottom"      value="3"/>
+            <enum name="topRight"    value="4"/>
+            <enum name="bottomRight" value="5"/>
+            <enum name="topLeft"     value="6"/>
+            <enum name="bottomLeft"  value="7"/>
+        </attr>
+    </declare-styleable>
+</resources>
