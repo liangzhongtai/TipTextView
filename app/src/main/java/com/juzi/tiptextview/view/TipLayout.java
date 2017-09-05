@@ -402,8 +402,7 @@ public class TipLayout extends FrameLayout {
                 cy = height * 5 / 6f+tipSurroundPadding;
             }
         }
-        int tipOuterR = tipRadius+tipOuterStroke;
-        int tipR = tipRadius;
+        int tipOuterR = tipRadius+tipOuterStroke;        int tipR = tipRadius;
         if (currentStatus == TIP_GONE) {
             tipOuterR = 0;
             tipR = 0;
@@ -449,14 +448,5 @@ public class TipLayout extends FrameLayout {
         }
     }
 
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        paint = null;
-        tipColor = 0;
-        tipTextColor = 0;
-        tipRadius = 0;
-    }
 
 }
