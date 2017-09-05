@@ -523,12 +523,4 @@ public class TipTextView extends TextView {
 
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        paint = null;
-        tipColor = 0;
-        tipTextColor = 0;
-        tipRadius = 0;
-    }
 }
