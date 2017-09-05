@@ -858,15 +858,4 @@ public class TipLinearLayout extends LinearLayout {
             return offsetWidth;
         }
     }
-
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        paint = null;
-        tipColor = 0;
-        tipTextColor = 0;
-        tipRadius = 0;
-    }
-
 }
