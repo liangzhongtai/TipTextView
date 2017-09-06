@@ -98,8 +98,8 @@ dependencies {
 (2).在代码中也可以动态设置,set方法同TipTextView.
 
 ## 3.TipLinearLayout
-(1).在xml中可以直接使用自定义属性来设置部分属性,此时TipRadioGroup内部的RadioButton都使用同一设置,同TipTextView;
-(2).在代码中，可以单独给指定的RadioButton设置角标背景颜色和角标半径，角标字体颜色和角标字体大小,set方法同TipTextView.
+(1).在xml中可以直接使用自定义属性来设置部分属性,此时TipLinearLayout内部的Child都使用同一设置,同TipTextView;
+(2).在代码中，可以单独给指定的Child设置角标背景颜色和角标半径，角标字体颜色和角标字体大小,set方法同TipTextView.
 
 ## 4.TipRadioGroup
 (1).在xml中可以直接使用自定义属性来设置部分属性,此时TipRadioGroup内部的RadioButton都使用同一设置,同TipTextView;
