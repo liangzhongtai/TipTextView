@@ -3,8 +3,7 @@
 ## TipTextView
 ---------------
 
-> 关于我，欢迎关注
-  博客：[简书](http://www.jianshu.com/users/8d01db870d4a/timeline) 微信：[lzt橘子](18520660170)
+> 关于我，欢迎关注  博客：[简书](http://www.jianshu.com/users/8d01db870d4a/timeline) 微信：[lzt橘子](18520660170)
 
 （项目背景/作用介绍）
 
@@ -46,7 +45,7 @@ allprojects {
 App_Gradle:
 ``` xml
 dependencies {
-	        compile ''com.github.liangzhongtai:TipTextView:v1.0'
+	        compile 'com.github.liangzhongtai:TipTextView:v1.0'
 	}
 ```
 ### 使用方法
