@@ -45,7 +45,7 @@ allprojects {
 App_Gradle:
 ``` xml
 dependencies {
-	        compile 'com.github.liangzhongtai:TipTextView:v1.0'
+	        compile 'com.github.liangzhongtai:TipTextView:v1.1'
 	}
 ```
 ### 使用方法
