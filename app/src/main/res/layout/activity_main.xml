@@ -257,7 +257,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             >
-            <com.juzi.tiptextview.view.TipTextView
+            <com.lzt.tiptextviews.view.TipTextView
                 android:id="@+id/ttv_fixation"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
@@ -275,7 +275,7 @@
                 app:ttv_direction="topRight"
                 />
         </RelativeLayout>
-        <com.juzi.tiptextview.view.TipTextView
+        <com.lzt.tiptextviews.view.TipTextView
             android:id="@+id/ttv_surround"
             android:layout_width="match_parent"
             android:layout_height="128dp"
@@ -293,7 +293,7 @@
             app:ttv_sice="6"
             app:ttv_direction="topRight"
             />
-        <com.juzi.tiptextview.view.TipTextView
+        <com.lzt.tiptextviews.view.TipTextView
             android:id="@+id/ttv_surround_with_drawable"
             android:layout_width="256dp"
             android:layout_height="128dp"
@@ -315,7 +315,7 @@
             app:ttv_sice="6"
             app:ttv_direction="topRight"
             />
-        <com.juzi.tiptextview.view.TipTextView
+        <com.lzt.tiptextviews.view.TipTextView
             android:id="@+id/ttv_surround_center_v"
             android:layout_width="256dp"
             android:layout_height="128dp"
@@ -335,7 +335,7 @@
             app:ttv_sice="6"
             app:ttv_direction="topRight"
             />
-        <com.juzi.tiptextview.view.TipTextView
+        <com.lzt.tiptextviews.view.TipTextView
             android:id="@+id/ttv_surround_center_h"
             android:layout_width="256dp"
             android:layout_height="128dp"
@@ -372,7 +372,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="14dp"/>
-        <com.juzi.tiptextview.view.TipLayout
+        <com.lzt.tiptextviews.view.TipLayout
             android:id="@+id/tl_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -394,7 +394,7 @@
                     android:textColor="@color/colorWhite"
                     android:background="@drawable/selector_button_green_submit"
                     />
-        </com.juzi.tiptextview.view.TipLayout>
+        </com.lzt.tiptextviews.view.TipLayout>
         <Space
             android:layout_width="match_parent"
             android:layout_height="28dp"/>
@@ -407,7 +407,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="14dp"/>
-        <com.juzi.tiptextview.view.TipLayout
+        <com.lzt.tiptextviews.view.TipLayout
             android:id="@+id/tl_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -425,7 +425,7 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 />
-        </com.juzi.tiptextview.view.TipLayout>
+        </com.lzt.tiptextviews.view.TipLayout>
         <Space
             android:layout_width="match_parent"
             android:layout_height="28dp"/>
@@ -438,7 +438,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="14dp"/>
-        <com.juzi.tiptextview.view.TipLayout
+        <com.lzt.tiptextviews.view.TipLayout
             android:id="@+id/tl_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -458,7 +458,7 @@
                 android:gravity="center"
                 android:text="居中固定模式"
                 />
-        </com.juzi.tiptextview.view.TipLayout>
+        </com.lzt.tiptextviews.view.TipLayout>
         <Space
             android:layout_width="match_parent"
             android:layout_height="28dp"/>
@@ -473,7 +473,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:text="TipLinearLayout"
             />
-        <com.juzi.tiptextview.view.TipLinearLayout
+        <com.lzt.tiptextviews.view.TipLinearLayout
             android:id="@+id/tll_test"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -508,7 +508,7 @@
                 android:padding="14dp"
                 android:text="three"
                 />
-        </com.juzi.tiptextview.view.TipLinearLayout>
+        </com.lzt.tiptextviews.view.TipLinearLayout>
         <Space
             android:layout_width="match_parent"
             android:layout_height="28dp"/>
@@ -526,7 +526,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="14dp"/>
-        <com.juzi.tiptextview.view.TipRadioGroup
+        <com.lzt.tiptextviews.view.TipRadioGroup
             android:id="@+id/trg_test"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -558,7 +558,7 @@
                 android:padding="14dp"
                 android:text="葡萄"
                 />
-        </com.juzi.tiptextview.view.TipRadioGroup>
+        </com.lzt.tiptextviews.view.TipRadioGroup>
         <Space
             android:layout_width="match_parent"
             android:layout_height="28dp"/>

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TipTextView.iml" filepath="$PROJECT_DIR$/TipTextView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tiptextviews/tiptextviews.iml" filepath="$PROJECT_DIR$/tiptextviews/tiptextviews.iml" />
     </modules>
   </component>
 </project>

@@ -1,4 +1,4 @@
-package com.juzi.tiptextview.view;
+package com.lzt.tiptextviews.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,19 +11,22 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 
-import com.juzi.tiptextview.R;
-import com.juzi.tiptextview.global.Global;
+
+import com.lzt.tiptextviews.R;
+import com.lzt.tiptextviews.global.Global;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liangzhongtai on 2017/2/20.
  */
-public class TipLinearLayout extends LinearLayout {
+public class TipRadioGroup extends RadioGroup {
     public final static int TIP_VISIBLE = 1;
     public final static int TIP_GONE = 2;
-    private ArrayList<View> views = new ArrayList<>();
+    private List<View> views = new ArrayList<>();
     private float radioCount;
     private float totalWeight;
     private float[] weights;
@@ -51,7 +54,7 @@ public class TipLinearLayout extends LinearLayout {
     private float tipSice;
     private float[] tipSices;
     private float oriTipSice;
-    private ArrayList<String> tips = new ArrayList<>();
+    private List<String> tips = new ArrayList<>();
     private float tipRdius2TipSice;
     private float[] tipRdius2TipSices;
     private int max;
@@ -64,37 +67,37 @@ public class TipLinearLayout extends LinearLayout {
     private float[] rHeights;
     private float rWidth;
     private float[] rWidths;
-    public final static int LEFT = 0;
-    public final static int TOP = 1;
-    public final static int RIGHT = 2;
-    public final static int BOTTOM = 3;
-    public final static int TOPRIGHT = 4;
+    public final static int LEFT        = 0;
+    public final static int TOP         = 1;
+    public final static int RIGHT       = 2;
+    public final static int BOTTOM      = 3;
+    public final static int TOPRIGHT    = 4;
     public final static int BOTTOMRIGHT = 5;
-    public final static int TOPLEFT = 6;
-    public final static int BOTTOMLEFT = 7;
+    public final static int TOPLEFT     = 6;
+    public final static int BOTTOMLEFT  = 7;
 
-    public final static int FIXATION = 0;
-    public final static int SURROUND = 1;
+    public final static int FIXATION    = 0;
+    public final static int SURROUND    = 1;
     public final static int SURROUND_V = 2;
     public final static int SURROUND_H = 3;
 
-    public final static int CIRCLE = 0;
+    public final static int CIRCLE          = 0;
     public final static int ROUND_RECTANGLE = 1;
-    public final static int RECTANGLE = 2;
-    public final static int OVAL = 3;
+    public final static int RECTANGLE       = 2;
+    public final static int OVAL            = 3;
 
     public final static int ONLY_WWIGHT = 0;
     public final static int COMMON_MIX  = 1;
-    public TipLinearLayout(Context context) {
+    public TipRadioGroup(Context context) {
         this(context, null);
     }
-    public TipLinearLayout(Context context, AttributeSet attrs) {
+    public TipRadioGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
 
     }
 
-    public TipLinearLayout setViews(ArrayList<View> views,ArrayList<String> tips,int marginLeft,int marginTop,int
+    public TipRadioGroup setViews(ArrayList<View> views,ArrayList<String> tips,int marginLeft,int marginTop,int
             marginRight,int
             marginBottom) {
         removeAllViews();
@@ -119,7 +122,7 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipColorLists(int[] tipColors,int[] tipTextColors){
+    public TipRadioGroup setTipColorLists(int[] tipColors,int[] tipTextColors){
         int tipLength = tipColors.length;
         int tipTextLength = tipTextColors.length;
         this.tipColors = new int[tipLength];
@@ -134,7 +137,7 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipAndTextColor(int tipColor,int tipTextColor){
+    public TipRadioGroup setTipAndTextColor(int tipColor,int tipTextColor){
         this.tipColor = getResources().getColor(tipColor);
         this.tipTextColor = getResources().getColor(tipTextColor);
         tipColors = null;
@@ -143,7 +146,7 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipSice(int tipSice){
+    public TipRadioGroup setTipSice(int tipSice){
         this.tipSice = Global.sp2px(tipSice);
         tipRdius2TipSice = this.tipSice==0?0f:this.tipRadius/this.tipSice;
         tipSices = null;
@@ -156,7 +159,7 @@ public class TipLinearLayout extends LinearLayout {
         return tipSices;
     }
 
-    public TipLinearLayout setTipSices(float[] tipSices) {
+    public TipRadioGroup setTipSices(float[] tipSices) {
         int length = tipSices.length;
         this.tipSices = new float[length];
         for (int i = 0; i < length; i++) {
@@ -170,21 +173,26 @@ public class TipLinearLayout extends LinearLayout {
         }else{
             tipRdius2TipSices = new float[length];
             for (int i = 0; i < length; i++) {
-                tipRdius2TipSices[i] = 1;
+                tipRdius2TipSices[i] = 1f;
             }
         }
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipSices(int index,float tipSice) {
+    public TipRadioGroup setTipSices(int index,float tipSice) {
         tipSices[index] = Global.sp2px(tipSice);
-        tipRdius2TipSices[index] = tipSices[index]==0?0:tipRadiuses[index] / tipSices[index];
+        tipRdius2TipSices= tipRdius2TipSices==null?new float[tipSices.length]:tipRdius2TipSices;
+        if(tipRadiuses==null){
+            tipRdius2TipSices[index] = 1f;
+        }else{
+            tipRdius2TipSices[index] = tipSices[index]==0?0:tipRadiuses[index] / tipSices[index];
+        }
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipRadiuses(int[] tipRadiuses) {
+    public TipRadioGroup setTipRadiuses(int[] tipRadiuses) {
         int length = tipRadiuses.length;
         this.tipRadiuses = new int[length];
         for (int i = 0; i < length; i++) {
@@ -198,21 +206,26 @@ public class TipLinearLayout extends LinearLayout {
         }else{
             tipRdius2TipSices = new float[length];
             for (int i = 0; i < length; i++) {
-                tipRdius2TipSices[i] =  1;
+                tipRdius2TipSices[i] =  1f;
             }
         }
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipRadiuses(int index,int tipRadius) {
+    public TipRadioGroup setTipRadiuses(int index,int tipRadius) {
         this.tipRadiuses[index]=Global.dp2px(tipRadius);
-        tipRdius2TipSices[index]= tipSices[index]==0?0f:this.tipRadiuses[index] / tipSices[index];
+        tipRdius2TipSices= tipRdius2TipSices==null?new float[tipRadiuses.length]:tipRdius2TipSices;
+        if(tipSices==null){
+            tipRdius2TipSices[index]= 1f;
+        }else{
+            tipRdius2TipSices[index]= tipSices[index]==0?0f:this.tipRadiuses[index] / tipSices[index];
+        }
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipOuterStrokes(int[] tipOuterStrokes) {
+    public TipRadioGroup setTipOuterStrokes(int[] tipOuterStrokes) {
         int length = tipOuterStrokes.length;
         this.tipOuterStrokes = new int[length];
         for (int i = 0; i < length; i++) {
@@ -222,19 +235,19 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipOuterStrokes(int index,int tipOuterStroke) {
+    public TipRadioGroup setTipOuterStrokes(int index,int tipOuterStroke) {
         this.tipOuterStrokes[index]=Global.dp2px(tipOuterStroke);
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipSurroundPaddings(int tipSurroundPadding){
+    public TipRadioGroup setTipSurroundPaddings(int tipSurroundPadding){
         this.tipSurroundPadding = tipSurroundPadding;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipCout(int index,int tip){
+    public TipRadioGroup setTipCout(int index,int tip){
         if(tip<1){
             tips.set(index,"");
         }else {
@@ -243,7 +256,7 @@ public class TipLinearLayout extends LinearLayout {
         invalidate();
         return this;
     }
-    public TipLinearLayout setTipText(int index,String tip){
+    public TipRadioGroup setTipText(int index,String tip){
         if(TextUtils.isEmpty(tip)){
             tips.set(index,"");
         }else {
@@ -253,33 +266,33 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTips(ArrayList<String> tips) {
+    public TipRadioGroup setTips(ArrayList<String> tips) {
         this.tips = tips;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setDirection(int direction) {
+    public TipRadioGroup setDirection(int direction) {
         this.direction = direction;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipColor(int tipColor) {
+    public TipRadioGroup setTipColor(int tipColor) {
         this.tipColor = getResources().getColor(tipColor);
         tipColors = null;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipTextColor(int tipTextColor) {
+    public TipRadioGroup setTipTextColor(int tipTextColor) {
         this.tipTextColor = getResources().getColor(tipTextColor);
         tipTextColors = null;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipColors(int[] tipColors) {
+    public TipRadioGroup setTipColors(int[] tipColors) {
         int tipLength = tipColors.length;
         this.tipColors = new int[tipLength];
         for(int i=0;i<tipLength;i++){
@@ -289,7 +302,7 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipOuterColors(int[] tipOuterColors) {
+    public TipRadioGroup setTipOuterColors(int[] tipOuterColors) {
         int tipOuterLength = tipOuterColors.length;
         this.tipOuterColors = new int[tipOuterLength];
         for(int i=0;i<tipOuterLength;i++){
@@ -299,7 +312,7 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipTextColors(int[] tipTextColors) {
+    public TipRadioGroup setTipTextColors(int[] tipTextColors) {
         int tipTextLength = tipTextColors.length;
         this.tipTextColors = new int[tipTextLength];
         for(int i=0;i<tipTextLength;i++){
@@ -309,25 +322,25 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipColors(int index,int tipColor) {
+    public TipRadioGroup setTipColors(int index,int tipColor) {
         this.tipColors[index] = getResources().getColor(tipColor);
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipOuterColors(int index,int tipOuterColor) {
+    public TipRadioGroup setTipOuterColors(int index,int tipOuterColor) {
         this.tipOuterColors[index] = getResources().getColor(tipOuterColor);
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipTextColors(int index,int tipTextColor) {
+    public TipRadioGroup setTipTextColors(int index,int tipTextColor) {
         this.tipTextColors[index] = getResources().getColor(tipTextColor);
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipRadius(int tipRadius) {
+    public TipRadioGroup setTipRadius(int tipRadius) {
         this.tipRadius = Global.dp2px(tipRadius);
         tipRdius2TipSice = tipSice==0?0f:this.tipRadius/tipSice;
         tipRadiuses = null;
@@ -336,14 +349,14 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipOuterRadius(int tipOuterStroke) {
+    public TipRadioGroup setTipOuterRadius(int tipOuterStroke) {
         this.tipOuterStroke = Global.dp2px(tipOuterStroke);
         tipOuterStrokes = null;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setTipSice(float tipSice) {
+    public TipRadioGroup setTipSice(float tipSice) {
         this.tipSice = Global.sp2px(tipSice);
         tipRdius2TipSice = this.tipSice==0?0f:this.tipRadius/ this.tipSice;
         tipSices = null;
@@ -352,78 +365,78 @@ public class TipLinearLayout extends LinearLayout {
         return this;
     }
 
-    public TipLinearLayout setTipSurroundPadding(int tipSurroundPadding) {
+    public TipRadioGroup setTipSurroundPadding(int tipSurroundPadding) {
         this.tipSurroundPadding = tipSurroundPadding;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setMax(int max) {
+    public TipRadioGroup setMax(int max) {
         this.max = max;
         maxes = null;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setMaxes(int[] maxes) {
+    public TipRadioGroup setMaxes(int[] maxes) {
         this.maxes = maxes;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setMaxes(int index, int max) {
+    public TipRadioGroup setMaxes(int index, int max) {
         this.maxes[index] = max;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setShape(int shape) {
+    public TipRadioGroup setShape(int shape) {
         this.shape = shape;
         shapes = null;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setShapes(int[] shapes) {
+    public TipRadioGroup setShapes(int[] shapes) {
         this.shapes = shapes;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setCorner(float corner) {
+    public TipRadioGroup setCorner(float corner) {
         this.corner = corner;
         corners = null;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setCorners(float[] corners) {
+    public TipRadioGroup setCorners(float[] corners) {
         this.corners = corners;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setRHeight(float rHeight) {
+    public TipRadioGroup setRHeight(float rHeight) {
         this.rHeight = rHeight;
         rHeights = null;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setRHeights(float[] rHeights) {
+    public TipRadioGroup setRHeights(float[] rHeights) {
         this.rHeights = rHeights;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setRWidth(float rWidth) {
+    public TipRadioGroup setRWidth(float rWidth) {
         this.rWidth = rWidth;
         rWidths = null;
         invalidate();
         return this;
     }
 
-    public TipLinearLayout setRWidths(float[] rWidths) {
+    public TipRadioGroup setRWidths(float[] rWidths) {
         this.rWidths = rWidths;
         invalidate();
         return this;
@@ -461,7 +474,7 @@ public class TipLinearLayout extends LinearLayout {
         return direction;
     }
 
-    public ArrayList<String> getTips() {
+    public List<String> getTips() {
         return tips;
     }
 
@@ -553,33 +566,34 @@ public class TipLinearLayout extends LinearLayout {
 
     @SuppressWarnings("ResourceType")
     public void init(AttributeSet attrs){
+        Global.init(getContext());
         paint = new Paint();
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setDither(true);
         paint.setAntiAlias(true);
         if(attrs != null) {
-            TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.TipLinearLayout);
-            tipType = array.getInt(R.styleable.TipLinearLayout_tll_type, FIXATION);
-            tipSurroundPadding = Global.dp2px(array.getInt(R.styleable.TipLinearLayout_tll_surround_padding, 2));
+            TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.TipRadioGroup);
+            tipType = array.getInt(R.styleable.TipRadioGroup_trg_type, FIXATION);
+            tipSurroundPadding = Global.dp2px(array.getInt(R.styleable.TipRadioGroup_trg_surround_padding, 2));
             oriTipSurroundPadding = tipSurroundPadding;
-            tipColor = array.getColor(R.styleable.TipLinearLayout_tll_color, getResources().getColor(R.color.colorecRed));
-            tipOuterColor = array.getColor(R.styleable.TipLinearLayout_tll_outer_color, getResources().getColor(R.color
+            tipColor = array.getColor(R.styleable.TipRadioGroup_trg_color, getResources().getColor(R.color.colorecRed));
+            tipOuterColor = array.getColor(R.styleable.TipRadioGroup_trg_outer_color, getResources().getColor(R.color
                     .colorffRed));
-            tipTextColor = array.getColor(R.styleable.TipLinearLayout_tll_textcolor, getResources().getColor(R.color
+            tipTextColor = array.getColor(R.styleable.TipRadioGroup_trg_textcolor, getResources().getColor(R.color
                     .colorWhite));
-            direction = array.getInt(R.styleable.TipLinearLayout_tll_direction, TOPRIGHT);
-            tipRadius = Global.dp2px(array.getInt(R.styleable.TipLinearLayout_tll_radius, 6));
+            direction = array.getInt(R.styleable.TipRadioGroup_trg_direction, TOPRIGHT);
+            tipRadius = Global.dp2px(array.getInt(R.styleable.TipRadioGroup_trg_radius, 6));
             oriTipRadius = tipRadius;
-            tipOuterStroke = Global.dp2px(array.getInt(R.styleable.TipLinearLayout_tll_outer_stroke, 2));
+            tipOuterStroke = Global.dp2px(array.getInt(R.styleable.TipRadioGroup_trg_outer_stroke, 2));
             oriTipOuterStorke = tipOuterStroke;
-            tipSice = Global.sp2px(array.getFloat(R.styleable.TipLinearLayout_tll_sice, 6));
+            tipSice = Global.sp2px(array.getFloat(R.styleable.TipRadioGroup_trg_sice, 6));
             oriTipSice = tipSice;
-            tipRdius2TipSice = array.getInt(R.styleable.TipLinearLayout_tll_radius, 6)/array.getFloat(R.styleable
-                    .TipLinearLayout_tll_sice, 6);
-            shape = array.getInt(R.styleable.TipLinearLayout_tll_shape, CIRCLE);
-            corner = Global.sp2px(array.getFloat(R.styleable.TipLinearLayout_tll_corner, 2));
-            rHeight = Global.sp2px(array.getFloat(R.styleable.TipLinearLayout_tll_rHeight, 14));
-            rWidth = Global.sp2px(array.getFloat(R.styleable.TipLinearLayout_tll_rWidth, 20));
+            tipRdius2TipSice = array.getInt(R.styleable.TipRadioGroup_trg_radius, 6)/array.getFloat(R.styleable
+                    .TipRadioGroup_trg_sice, 6);
+            shape = array.getInt(R.styleable.TipRadioGroup_trg_shape, CIRCLE);
+            corner = Global.sp2px(array.getFloat(R.styleable.TipRadioGroup_trg_corner, 2));
+            rHeight = Global.sp2px(array.getFloat(R.styleable.TipRadioGroup_trg_rHeight, 14));
+            rWidth = Global.sp2px(array.getFloat(R.styleable.TipRadioGroup_trg_rWidth, 20));
             array.recycle();
         }
     }
@@ -613,33 +627,31 @@ public class TipLinearLayout extends LinearLayout {
         int length = getChildCount();
         totalWeight = 0;
         weights = new float[length];
-        widths = new float[length];
+        widths  = new float[length];
         heights = new float[length];
         for(int i=0;i<length;i++){
-            weights[i] = ((LayoutParams)getChildAt(i).getLayoutParams()).weight;
-            totalWeight+=  weights[i];
+            weights[i] = ((LinearLayout.LayoutParams)getChildAt(i).getLayoutParams()).weight;
+            totalWeight+= weights[i];
             widths[i] = getChildAt(i).getWidth();
             totalWidth+= widths[i];
             heights[i] = getChildAt(i).getWidth();
             totalHeight+= heights[i];
         }
         for(int i=0;i<radioCount;i++) {
-
             if (tipType != FIXATION) {
                 float viewWidth = views.get(i) == null ? 0 : views.get(i).getRight();
                 float viewHeight = views.get(i) == null ? 0 : views.get(i).getBottom();
-
                 if(orientation==HORIZONTAL) {
                     float offsetWidth = formatOffSetWidthAndHeights(i, getWidth());
                     width = (int)(getWidth()*(weights[0]/totalWeight ));
                     if (direction == TOPRIGHT) {
                         cx = width / 2f + viewWidth / 2f + tipSurroundPadding + getPaddingLeft() - getPaddingRight()
-                                +offsetWidth;
+                               +offsetWidth;
                         cy = height / 2f - viewHeight / 2f - tipSurroundPadding + getPaddingTop()
                                 / 2f - getPaddingBottom() + Global.dp2px(3);
                     } else if (direction == BOTTOMRIGHT) {
                         cx = width / 2f + viewWidth / 2f + tipSurroundPadding + getPaddingLeft() - getPaddingRight()
-                                +offsetWidth;
+                               +offsetWidth;
                         cy = height / 2f + viewHeight / 2f + tipSurroundPadding + getPaddingTop() / 2f - getPaddingBottom()
                                 + Global.dp2px(3);
                     } else if (direction == TOPLEFT) {
@@ -659,7 +671,7 @@ public class TipLinearLayout extends LinearLayout {
                                 / 2f - getPaddingBottom() + Global.dp2px(3);
                     } else if (direction == RIGHT) {
                         cx = width / 2f + viewWidth / 2f + tipSurroundPadding + getPaddingLeft() - getPaddingRight()
-                                +offsetWidth;
+                               +offsetWidth;
                         cy = height / 2f + getPaddingTop() / 2f - getPaddingBottom() + Global.dp2px(3);
                     } else if (direction == BOTTOM) {
                         cx = width / 2f+offsetWidth;
@@ -733,6 +745,7 @@ public class TipLinearLayout extends LinearLayout {
                 }else{
                     float offsetHeight = formatOffSetWidthAndHeights(i, getHeight());
                     height =(int)(getHeight()*weights[0]/totalWeight);
+                    //height = (int)(getHeight()*((i + 1f) / radioCount - 1f / (radioCount * 2f)));
                     if (direction == TOPRIGHT) {
                         cx = width * 5 / 6f + tipSurroundPadding;
                         cy = height * 1 / 4f - tipSurroundPadding+offsetHeight;
@@ -759,8 +772,6 @@ public class TipLinearLayout extends LinearLayout {
                         cy = height * 5 / 6f + tipSurroundPadding+offsetHeight;
                     }
                 }
-
-
             }
             int tipR = tipRadiuses==null?tipRadius:tipRadiuses[i];
             int tipOuterR = tipOuterStrokes==null?(tipR+tipOuterStroke):(tipR+tipOuterStrokes[i]);
@@ -840,7 +851,6 @@ public class TipLinearLayout extends LinearLayout {
         }
     }
 
-
     private float formatOffSetWidthAndHeights(int index,float widthOrHeight) {
         if(index==0){
             return 0f;
@@ -858,4 +868,5 @@ public class TipLinearLayout extends LinearLayout {
             return offsetWidth;
         }
     }
+
 }

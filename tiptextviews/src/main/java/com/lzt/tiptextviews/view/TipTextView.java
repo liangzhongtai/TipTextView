@@ -1,4 +1,4 @@
-package com.juzi.tiptextview.view;
+package com.lzt.tiptextviews.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -11,12 +11,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.widget.TextView;
 
-import com.juzi.tiptextview.R;
-import com.juzi.tiptextview.global.Global;
+import com.lzt.tiptextviews.R;
+import com.lzt.tiptextviews.global.Global;
 
 
 /**
@@ -257,6 +256,7 @@ public class TipTextView extends TextView {
 
     @SuppressWarnings("ResourceType")
     public void init(AttributeSet attrs){
+        Global.init(getContext());
         paint = new Paint();
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setDither(true);

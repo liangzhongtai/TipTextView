@@ -1,4 +1,4 @@
-package com.juzi.tiptextview.view;
+package com.lzt.tiptextviews.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,8 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.juzi.tiptextview.R;
-import com.juzi.tiptextview.global.Global;
+import com.lzt.tiptextviews.R;
+import com.lzt.tiptextviews.global.Global;
+
 
 /**
  * Created by liangzhongtai on 2017/2/20.
@@ -291,6 +292,7 @@ public class TipLayout extends FrameLayout {
 
     @SuppressWarnings("ResourceType")
     public void init(AttributeSet attrs){
+        Global.init(getContext());
         paint = new Paint();
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setDither(true);

@@ -2,18 +2,14 @@ package com.juzi.tiptextview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 
-import com.juzi.tiptextview.view.TipLayout;
-import com.juzi.tiptextview.view.TipLinearLayout;
-import com.juzi.tiptextview.view.TipRadioGroup;
-import com.juzi.tiptextview.view.TipTextView;
+import com.lzt.tiptextviews.view.TipLayout;
+import com.lzt.tiptextviews.view.TipLinearLayout;
+import com.lzt.tiptextviews.view.TipRadioGroup;
+import com.lzt.tiptextviews.view.TipTextView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity {
